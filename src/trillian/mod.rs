@@ -1,7 +1,7 @@
-pub use rust_googleapis::google::rpc::status;
+use rust_googleapis::google::rpc::status;
 
-mod keyspb;
-mod sigpb;
+use crate::crypto::keyspb;
+use crate::crypto::sigpb;
 
 pub mod trillian;
 
