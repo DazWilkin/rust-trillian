@@ -1,0 +1,24 @@
+FROM rust:slim-buster
+
+RUN apt update && \
+    apt install -y \
+    git \
+    libssl-dev \
+    pkg-config \
+    unzip \
+    wget
+
+ARG VERS="3.11.4"
+ARG ARCH="linux-x86_64"
+
+RUN wget https://github.com/protocolbuffers/protobuf/releases/download/v${VERS}/protoc-${VERS}-${ARCH}.zip --output-document=./protoc-${VERS}-${ARCH}.zip && \
+    unzip -o protoc-${VERS}-${ARCH}.zip -d protoc-${VERS}-${ARCH} && \
+    mv protoc-${VERS}-${ARCH}/bin/* /usr/local/bin && \
+    mv protoc-${VERS}-${ARCH}/include/* /usr/local/include && \
+    rm protoc-${VERS}-${ARCH}.zip
+
+ARG REPO="rust-trillian"
+
+RUN git clone https://github.com/DazWilkin/${REPO} && \
+    cd ${REPO} && \
+    cargo build

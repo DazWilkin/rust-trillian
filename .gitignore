@@ -2,10 +2,10 @@
 Cargo.lock
 
 # Exclude protoc-generated rust sources
-/src/google/*.rs
+/src/**/*.rs
 
 # Include mod.rs
-!/src/google/mod.rs
+!/src/**/mod.rs
 
 # Ignore protoc
 /protoc-3.11.4-linux-x86_64

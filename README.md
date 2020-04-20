@@ -8,15 +8,15 @@ The crate clones [Trillian](https://github.com/google/trillian) and [Google APIs
 
 The result is a crate called `rust-trillian` that includes a `google` module that includes the various Trillian modules:
 
-+ trillian
-+ trillian_admin_api
-+ trillian_admin_api_grpc
-+ trillian_log_api
-+ trillian_log_api_grpc
-+ trillian_log_sequencer_api
-+ trillian_log_sequencer_api_grpc
-+ trillian_map_api
-+ trillian_map_api_grpc
++ `trillian`
++ `trillian_admin_api`
++ `trillian_admin_api_grpc`
++ `trillian_log_api`
++ `trillian_log_api_grpc`
++ `trillian_log_sequencer_api`
++ `trillian_log_sequencer_api_grpc`
++ `trillian_map_api`
++ `trillian_map_api_grpc`
 
 and their dependents:
 
@@ -56,4 +56,19 @@ and their dependents:
 │   └── lib.rs
 ├── target
 └── trillian
+```
+
+## Test
+
+'clean room' build of the repo to ensure that it builds.
+
+```bash
+PROJECT="crate-transparency"
+IMAGE="rust-trillian"
+TAG=$(git rev-parse HEAD)
+
+docker build \
+--tag=gcr.io/${PROJECT}/${IMAGE}:${TAG} \
+--file=./Dockerfile.test \
+./src
 ```
