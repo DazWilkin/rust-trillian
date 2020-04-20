@@ -20,8 +20,8 @@ The result is a crate called `rust-trillian` that includes a `google` module tha
 
 and their dependents:
 
-+ keyspb
-+ sigpb
++ `keyspb`
++ `sigpb`
 
 > **NB** The `google` module may be redundant
 
@@ -33,17 +33,15 @@ and their dependents:
 ├── Cargo.lock
 ├── Cargo.toml
 ├── googleapis
-│   ├── google
-│   │   ├── api
-│   │   ├── rpc
-│   ├── grafeas
 ├── protoc-3.11.4-linux-x86_64
 ├── README.md
 ├── src
-│   ├── google
+│   ├── crypto
 │   │   ├── keyspb.rs
 │   │   ├── mod.rs
-│   │   ├── sigpb.rs
+│   │   └── sigpb.rs
+
+│   ├── trillian
 │   │   ├── trillian_admin_api_grpc.rs
 │   │   ├── trillian_admin_api.rs
 │   │   ├── trillian_log_api_grpc.rs
