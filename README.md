@@ -27,6 +27,8 @@ and their dependents:
 
 ## Structure
 
+Trillian's protos are split across multiple files to partition by functionality, e.g. Trillian Log, Trillian Map. With Golang, Java and others, it's possible to publish these (different files) into a singular namespace. With Rust, different files denotes different modules and so the Rust module structure includes an additional layer that's not present in the other languages.
+
 ```bash
 .
 ├── build.rs
